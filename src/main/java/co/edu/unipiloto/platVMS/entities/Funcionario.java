@@ -19,7 +19,7 @@ public class Funcionario {
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    private List<Document> panelesAsignados = new ArrayList<Document>();
+    private ArrayList<Vms> panelesAsignados = new ArrayList<Vms>();
 
     public Funcionario(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -55,10 +55,10 @@ public class Funcionario {
         this.email = email;
     }
 
-    public List<Document> getPanelesAsignados(){
+    public ArrayList<Vms> getPanelesAsignados(){
         return panelesAsignados;
     }
-    public void asignarPanel(Document panel){
+    public void asignarPanel(Vms panel){
         panelesAsignados.add(panel);
     }
 }

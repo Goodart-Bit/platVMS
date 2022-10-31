@@ -42,4 +42,9 @@ public class PanelController {
         return ResponseEntity.ok(vmsService.getVmsbyId(id));
     }
 
+    @DeleteMapping(value="/delete/{id}")
+    public void deleteVms(@PathVariable String id){
+        vmsService.deleteVmsById(id);
+    }
+
 }

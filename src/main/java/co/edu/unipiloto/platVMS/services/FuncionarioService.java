@@ -24,15 +24,18 @@ public class FuncionarioService {
         return funcionarios.insert(newFuncionario);
     }
 
-    public ArrayList<Document> asignarPanel(String idFuncionario, String idPanel){
+    public ArrayList<Vms> asignarPanel(String idFuncionario, String idPanel) throws Exception {
         Funcionario target = null;
+        Vms panel = null;
         try{
             target = funcionarios.findById(idFuncionario).get();
-            Vms panel = paneles.findById(idPanel).get();
-            target.asignarPanel((Document) panel);
+            panel = paneles.findById(idPanel).get();
         } catch (Exception e){
-            System.out.println("Invalid id");
+            throw new Exception("Invalid id");
         }
-        return (ArrayList<Document>) target.getPanelesAsignados();
+        target.asignarPanel(panel);
+        funcionarios.deleteById(idFuncionario);
+        funcionarios.insert(target);
+        return target.getPanelesAsignados();
     }
 }

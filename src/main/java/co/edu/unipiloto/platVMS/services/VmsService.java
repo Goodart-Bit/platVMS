@@ -39,4 +39,8 @@ public class VmsService {
         Optional<Vms> vms = vmsRepository.findById(id);
         return vms.get();
     }
+
+    public void deleteVmsById(String id){
+        vmsRepository.deleteById(id);
+    }
 }
