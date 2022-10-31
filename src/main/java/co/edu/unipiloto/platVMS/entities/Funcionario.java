@@ -1,6 +1,5 @@
 package co.edu.unipiloto.platVMS.entities;
 
-import com.mongodb.lang.NonNull;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -8,6 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @Document
@@ -18,7 +19,7 @@ public class Funcionario {
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    private ArrayList<Panel> panelesAsignados = new ArrayList<Panel>();
+    private List<Document> panelesAsignados = new ArrayList<Document>();
 
     public Funcionario(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -54,11 +55,10 @@ public class Funcionario {
         this.email = email;
     }
 
-    public ArrayList<Panel> getPanelesAsignados() {
+    public List<Document> getPanelesAsignados(){
         return panelesAsignados;
     }
-
-    public void asignarPanel(Panel panel){
+    public void asignarPanel(Document panel){
         panelesAsignados.add(panel);
     }
 }

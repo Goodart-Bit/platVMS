@@ -18,8 +18,8 @@ public class VmsService {
 
     public List<Vms> getAllVms(){ return vmsRepository.findAll();}
 
-    public void newVms(Vms vms){
-        vmsRepository.insert(vms);
+    public Vms newVms(Vms vms){
+        return vmsRepository.insert(vms);
     }
 
     public void updateVms(Vms vms) throws Exception {

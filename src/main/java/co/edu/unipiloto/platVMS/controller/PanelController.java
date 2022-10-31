@@ -19,7 +19,7 @@ public class PanelController {
     VmsService vmsService;
 
     @GetMapping(value = "/healthCheck")
-    public ResponseEntity healthCheck (){
+    public ResponseEntity addPanel(){
         return  ResponseEntity.ok(HttpStatus.OK);
     }
 
@@ -27,9 +27,8 @@ public class PanelController {
     public ResponseEntity getAll(){ return ResponseEntity.ok(vmsService.getAllVms()); }
 
     @PostMapping(value = "/new", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity healthCheck (@RequestBody Vms vms){
-        vmsService.newVms(vms);
-        return ResponseEntity.ok(HttpStatus.OK);
+    public Vms addPanel(@RequestBody Vms vms){
+        return vmsService.newVms(vms);
     }
 
     @PutMapping(value =  "/update")

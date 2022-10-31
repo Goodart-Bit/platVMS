@@ -16,7 +16,6 @@ public class AgenteVial {
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    @NonNull
     private String ubicacionAsignada;
 
     public AgenteVial(String firstName, String lastName, String email, String ubicacionAsignada) {
@@ -55,7 +54,7 @@ public class AgenteVial {
         return ubicacionAsignada;
     }
 
-    public void setUbicacionAsignada(@NonNull String ubicacionAsignada) {
+    public void setUbicacionAsignada(String ubicacionAsignada) {
         this.ubicacionAsignada = ubicacionAsignada;
     }
 }
