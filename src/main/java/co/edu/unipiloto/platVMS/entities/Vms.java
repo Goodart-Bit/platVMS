@@ -1,5 +1,6 @@
 package co.edu.unipiloto.platVMS.entities;
 
+import com.mongodb.lang.NonNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,17 +15,15 @@ public class Vms {
 
     @Id
     private String id;
-    private int kilometro;
-    private String ubicacion;
+    @NonNull
+    private double[] coordenadas;
     private String tipo;
-    private String carretera;
+    @NonNull
     private boolean estado;
 
-    public Vms(int kilometro, String ubicacion, String tipo, String carretera, boolean estado) {
-        this.kilometro = kilometro;
-        this.ubicacion = ubicacion;
+    public Vms(double[] coordenadas, String tipo, boolean estado) {
+        this.coordenadas = coordenadas;
         this.tipo = tipo;
-        this.carretera = carretera;
         this.estado = estado;
     }
 }

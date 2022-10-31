@@ -1,6 +1,5 @@
 package co.edu.unipiloto.platVMS.entities;
 
-import com.mongodb.lang.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,22 +13,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Report {
     @Id
     private String id;
-    private String fecha;
+    private String fechaInicio;
+    private String fechaFin;
     private String idCreador;
-
     private String tipoEvento;
+    private String tipoCierre;
 
+    public Report(String fechaInicio, String fechaFin, String idCreador, String tipoEvento, String tipoCierre) {
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.idCreador = idCreador;
+        this.tipoEvento = tipoEvento;
+        this.tipoCierre = tipoCierre;
+    }
 
     public String getId() {
         return id;
     }
 
-    public String getFecha() {
-        return fecha;
+    public String getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
     public String getIdCreador() {
@@ -48,9 +55,19 @@ public class Report {
         this.tipoEvento = tipoEvento;
     }
 
-    public Report(String fecha, String idCreador, String tipoEvento) {
-        this.fecha = fecha;
-        this.idCreador = idCreador;
-        this.tipoEvento = tipoEvento;
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
+    public String getTipoCierre() {
+        return tipoCierre;
+    }
+
+    public void setTipoCierre(String tipoCierre) {
+        this.tipoCierre = tipoCierre;
     }
 }

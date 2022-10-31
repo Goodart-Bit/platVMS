@@ -29,7 +29,7 @@ public class ReportService {
         }
         Report storedReport = optionalReport.get();
         storedReport.setId(newReport.getId());
-        storedReport.setFecha(newReport.getFecha());
+        storedReport.setFechaInicio(newReport.getFechaInicio());
         storedReport.setTipoEvento(newReport.getTipoEvento());
         storedReport.setIdCreador(newReport.getIdCreador());
         return reportRepository.insert(storedReport);
