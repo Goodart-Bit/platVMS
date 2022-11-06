@@ -14,17 +14,49 @@ public class Sensor {
 
     @Id
     private String id;
-    private int kilometro;
-    private String ubicacion;
+
+    private Via viaCubierta;
     private String tipo;
-    private String carretera;
+
+    private double[] coordenadas;
     private boolean estado;
 
-    public Sensor(int kilometro, String ubicacion, String tipo, String carretera, boolean estado) {
-        this.kilometro = kilometro;
-        this.ubicacion = ubicacion;
+    public Sensor(String tipo, boolean estado, Via viaCubierta) {
         this.tipo = tipo;
-        this.carretera = carretera;
+        this.estado = estado;
+        this.viaCubierta = viaCubierta;
+        this.coordenadas = viaCubierta.getPuntoReferencia();
+    }
+
+    public Via getViaCubierta() {
+        return viaCubierta;
+    }
+
+    public void setViaCubierta(Via viaCubierta) {
+        this.viaCubierta = viaCubierta;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double[] getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(double[] coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 }

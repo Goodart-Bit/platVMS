@@ -22,17 +22,12 @@ public class VmsService {
         return vmsRepository.insert(vms);
     }
 
-    public void updateVms(Vms vms) throws Exception {
-        Vms storedVms = null;
-        try{
-            storedVms = vmsRepository.findById(vms.getId()).get();
-        } catch (IllegalArgumentException e){
-            throw new Exception("A null id was given");
-        } catch (NoSuchElementException e) {
-            throw new Exception("An invalid id was given");
+    public void updateVms(Vms updatedVms) {
+        if (!vmsRepository.existsById(updatedVms.getId())){
+            return;
         }
-        vmsRepository.deleteById(storedVms.getId());
-        vmsRepository.insert(vms);
+        vmsRepository.deleteById(updatedVms.getId());
+        vmsRepository.insert(updatedVms);
     }
 
     public Vms getVmsbyId(String id){

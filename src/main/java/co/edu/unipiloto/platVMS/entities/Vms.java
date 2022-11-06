@@ -18,12 +18,52 @@ public class Vms {
     @NonNull
     private double[] coordenadas;
     private String tipo;
+
+    private String idViaAsignada;
     @NonNull
     private boolean estado;
 
-    public Vms(double[] coordenadas, String tipo, boolean estado) {
+    public Vms(@NonNull double[] coordenadas, String tipo, String idViaAsignada, boolean estado) {
         this.coordenadas = coordenadas;
         this.tipo = tipo;
+        this.idViaAsignada = idViaAsignada;
+        this.estado = estado;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    @NonNull
+    public double[] getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(@NonNull double[] coordenadas) {
+        this.coordenadas = coordenadas;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getIdViaAsignada() {
+        return idViaAsignada;
+    }
+
+    public void setIdViaAsignada(String idViaAsignada) {
+        this.idViaAsignada = idViaAsignada;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 }

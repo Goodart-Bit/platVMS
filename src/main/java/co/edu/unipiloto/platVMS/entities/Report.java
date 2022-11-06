@@ -9,20 +9,25 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document
 @NoArgsConstructor
-@AllArgsConstructor
 public class Report {
     @Id
     private String id;
     private String fechaInicio;
     private String fechaFin;
     private String idCreador;
+
+    private String idVia;
+
+    private double[] coordenadas;
     private String tipoEvento;
     private String tipoCierre;
 
-    public Report(String fechaInicio, String fechaFin, String idCreador, String tipoEvento, String tipoCierre) {
+    public Report(String fechaInicio, String fechaFin, String idCreador, String idVia, double[] coordenadas, String tipoEvento, String tipoCierre) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.idCreador = idCreador;
+        this.idVia = idVia;
+        this.coordenadas = coordenadas;
         this.tipoEvento = tipoEvento;
         this.tipoCierre = tipoCierre;
     }
@@ -69,5 +74,13 @@ public class Report {
 
     public void setTipoCierre(String tipoCierre) {
         this.tipoCierre = tipoCierre;
+    }
+
+    public double[] getCoordenadas() {
+        return coordenadas;
+    }
+
+    public void setCoordenadas(double[] coordenadas) {
+        this.coordenadas = coordenadas;
     }
 }

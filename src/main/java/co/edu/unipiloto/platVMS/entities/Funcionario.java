@@ -5,9 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Data
@@ -19,7 +17,7 @@ public class Funcionario {
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    private ArrayList<Vms> panelesAsignados = new ArrayList<Vms>();
+    private ArrayList<Via> viasAsignadas = new ArrayList<>();
 
     public Funcionario(String firstName, String lastName, String email) {
         this.firstName = firstName;
@@ -55,10 +53,18 @@ public class Funcionario {
         this.email = email;
     }
 
-    public ArrayList<Vms> getPanelesAsignados(){
-        return panelesAsignados;
+    public ArrayList<Via> getViasAsignadas(){
+        return viasAsignadas;
     }
-    public void asignarPanel(Vms panel){
-        panelesAsignados.add(panel);
+    public void asignarVia(Via via){
+        viasAsignadas.add(via);
+    }
+
+    public void removerVia(String vmsId) {
+        for (int idx = 0; idx < viasAsignadas.size(); idx++){
+            if (viasAsignadas.get(idx).getId().equals(vmsId)){
+                viasAsignadas.remove(idx);
+            }
+        }
     }
 }

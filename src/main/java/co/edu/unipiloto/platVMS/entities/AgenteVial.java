@@ -16,13 +16,13 @@ public class AgenteVial {
     private String lastName;
     @Indexed(unique = true)
     private String email;
-    private String ubicacionAsignada;
+    private String idViaAsignada;
 
-    public AgenteVial(String firstName, String lastName, String email, String ubicacionAsignada) {
+    public AgenteVial(String firstName, String lastName, String email, String idViaAsignada) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.ubicacionAsignada = ubicacionAsignada;
+        this.idViaAsignada = idViaAsignada;
     }
 
     public String getFirstName() {
@@ -50,11 +50,11 @@ public class AgenteVial {
     }
 
     @NonNull
-    public String getUbicacionAsignada() {
-        return ubicacionAsignada;
+    public String getIdViaAsignada() {
+        return idViaAsignada;
     }
 
-    public void setUbicacionAsignada(String ubicacionAsignada) {
-        this.ubicacionAsignada = ubicacionAsignada;
+    public void setIdViaAsignada(String idViaAsignada) {
+        this.idViaAsignada = idViaAsignada;
     }
 }
