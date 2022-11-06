@@ -28,5 +28,4 @@ public class ViaService {
             throw new Exception("Id invalido");
         }
     }
-
 }

@@ -69,7 +69,9 @@ public class ReportService {
         LocalDate endBound = dateUtility.toLocalDate(fechaFin);
         for (Report report: getAllReports()) {
             LocalDate reportIniDate = dateUtility.toLocalDate(report.getFechaInicio());
-            if (reportIniDate.isAfter(iniBound) && reportIniDate.isBefore(endBound)){
+            boolean dateBetweenRange = reportIniDate.isAfter(iniBound) && reportIniDate.isBefore(endBound);
+            boolean dateEqualToRangeLimits = reportIniDate.isEqual(iniBound) || reportIniDate.isEqual(endBound);
+            if (dateBetweenRange || dateEqualToRangeLimits ){  //intervalo ok = [iniBound,endBond]
                 matchReports.add(report);
             }
         }

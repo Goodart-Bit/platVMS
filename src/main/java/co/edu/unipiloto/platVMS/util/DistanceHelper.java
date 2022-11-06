@@ -1,12 +1,10 @@
 package co.edu.unipiloto.platVMS.util;
 
-import java.util.Locale;
+public class DistanceHelper {
+    private DistanceUnits units;
 
-public class DirectionsHelper {
-    private String units;
-
-    public DirectionsHelper(String units){
-        this.units = units.toLowerCase();
+    public DistanceHelper(DistanceUnits units){
+        this.units = units;
     }
 
     public double measureDistance(double lat1, double lon1, double lat2, double lon2){
@@ -19,9 +17,9 @@ public class DirectionsHelper {
             dist = Math.acos(dist);
             dist = Math.toDegrees(dist);
             dist = dist * 60 * 1.1515;
-            if (units.equals("km")) {
+            if (units.equals(DistanceUnits.KM)) {
                 dist = dist * 1.609344;
-            } else if (units.equals("miles")) {
+            } else if (units.equals(DistanceUnits.MI)) {
                 dist = dist * 0.8684;
             }
             return (dist);

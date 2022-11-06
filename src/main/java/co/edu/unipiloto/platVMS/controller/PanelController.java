@@ -2,6 +2,7 @@ package co.edu.unipiloto.platVMS.controller;
 
 
 
+import co.edu.unipiloto.platVMS.entities.Report;
 import co.edu.unipiloto.platVMS.entities.Vms;
 import co.edu.unipiloto.platVMS.services.VmsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class PanelController {
     @GetMapping(value =  "/getVmsbyId/{id}")
     public ResponseEntity getVmsById(@PathVariable String id){
         return ResponseEntity.ok(vmsService.getVmsbyId(id));
+    }
+
+    @GetMapping (value = "/vms_near_report={radiusKms}")
+    public ResponseEntity vmsNearEvent(@RequestBody Report report, @PathVariable double radiusKms){
+        return ResponseEntity.ok(vmsService.getVmsFromReportRadius(report,radiusKms));
     }
 
     @DeleteMapping(value="/delete/{id}")

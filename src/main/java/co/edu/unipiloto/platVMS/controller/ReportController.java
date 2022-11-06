@@ -32,7 +32,7 @@ public class ReportController {
     }
 
     @GetMapping(value="/from{fechaInicio}to{fechaFinal}")
-    public ResponseEntity getReportsBetweenDates(@PathVariable(value="fechaInicio") String fechaInicio,@PathVariable String fechaFin){
+    public ResponseEntity getReportsBetweenDates(@PathVariable(value="fechaInicio") String fechaInicio,@PathVariable(value="fechaFinal") String fechaFin){
         return ResponseEntity.ok(reportService.getReportsBetweenDates(fechaInicio, fechaFin));
     }
 
